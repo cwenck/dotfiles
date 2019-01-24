@@ -1,0 +1,20 @@
+[user]
+	email = cwenck@umd.edu
+	name = Connor Wenck
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+	filemode = false
+[push]
+	default = simple
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[tig]
+	line-graphics = utf-8
+	mouse = true
+	mouse-scroll = 3
+	main-view = line-number:no,interval=5 date:relative id:yes author:full commit-title:yes,graph,refs,overflow=no
+[tig "color"]
+	cursor = white blue bold
+[merge]
+	conflictstyle = diff3

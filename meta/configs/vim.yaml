@@ -1,0 +1,11 @@
+- link:
+    ~/.vimrc: vim/vimrc
+    ~/.vim:
+        path: vim/vim
+        force: true
+
+- shell:
+    - ["mkdir -p ~/.vim/vimundo && chmod 700 ~/.vim/vimundo", "Create vim undo dir"]
+    - ["vim -u ~/.vim/plugins.vim +'PlugUpgrade --sync' +qa", "Update vim plug"]
+    - ["vim -u ~/.vim/plugins.vim +'PlugClean --sync' +qa", "Remove unused vim plugins"]
+    - ["vim -u ~/.vim/plugins.vim +'PlugUpdate --sync' +qa", "Install/Update vim plugins"]
