@@ -3,7 +3,7 @@
 	name = Connor Wenck
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
 	filemode = false
 [push]
 	default = simple
