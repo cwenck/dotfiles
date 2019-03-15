@@ -106,6 +106,9 @@ let g:lightline = { 'colorscheme': 'onedark' }
 
 " Vim Commentary Added Support
 autocmd FileType ocaml setlocal commentstring=(*\ %s\ *)
+autocmd FileType c setlocal commentstring=//\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
+autocmd FileType asm setlocal commentstring=;;\ %s
 
 
 "Keyboard Mappings "
