@@ -127,9 +127,6 @@ noremap <nowait> <silent> <C-c> <Esc>
 " Use jj to enter insert mode
 inoremap <nowait> <silent> jj <Esc>`^
 
-" Use jj to enter insert mode
-inoremap <nowait> <silent> ii <Esc>`^
-
 " Use F12 to Ctrl-C
 noremap <nowait> <silent> <F12> <C-c>
 
