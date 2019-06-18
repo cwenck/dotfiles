@@ -1,3 +1,4 @@
+set nocompatible
 source $HOME/.vim/plugins.vim
 
 filetype indent plugin on
@@ -44,8 +45,6 @@ set ruler
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
 
-set laststatus=2
-
 " Save undos to a file, will persist when vim quits
 set undodir=$HOME/.vim/vimundo/
 set undofile
@@ -57,13 +56,14 @@ set ignorecase
 set hlsearch
 set incsearch
 
+set laststatus=2
 set statusline+=%f
 set ls=2
 
 set linebreak
 
 " Keep vim speedy
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=500 ttimeoutlen=0
 
 " Indent
 set autoindent
@@ -87,15 +87,15 @@ augroup END
 
 " Color Scheme
 syntax on
-
-if (has("termguicolors"))
-	set termguicolors
-else 
-	set t_Co=16
-endif
-
 set background=dark
-colorscheme onedark
+
+" if (has("termguicolors"))
+" 	set termguicolors
+" 	colorscheme onedark
+" endif
+"
+set t_Co=16
+colorscheme slate
 
 " JSON show all quotes
 let g:vim_json_syntax_conceal = 0
@@ -103,39 +103,38 @@ let g:vim_json_syntax_conceal = 0
 " Lightline Settings
 let g:lightline = { 'colorscheme': 'onedark' }
 
-
 " Vim Commentary Added Support
 autocmd FileType ocaml setlocal commentstring=(*\ %s\ *)
 autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType asm setlocal commentstring=;;\ %s
 
-
-"Keyboard Mappings "
-
-"-------------------"
+"--- Keyboard Mappings ---"
 
 " Make <Space> the leader key
 let mapleader="\\"
 map <Space> <leader>
 
 " Clear search highlights by pressing return in command mode
-nnoremap <leader>;  :noh<CR>
+nnoremap <leader>; :noh<CR>
 
 " Use F2 to toggle vim paste mode
 set pastetoggle=<F2>
 
+" Use Ctrl-C to Escape
+noremap <nowait> <silent> <C-c> <Esc>
+
 " Use jj to enter insert mode
 inoremap <nowait> <silent> jj <Esc>`^
-inoremap <nowait> <silent> jk <Esc>`^
-inoremap <nowait> <silent> kj <Esc>`^
+
+" Use jj to enter insert mode
+inoremap <nowait> <silent> ii <Esc>`^
+
+" Use F12 to Ctrl-C
+noremap <nowait> <silent> <F12> <C-c>
 
 " Avoid entering Ex mode
 nnoremap Q <nop>
-
-" Map Ctrl-C to Esc
-inoremap <C-c> <Esc> `^
-vnoremap <C-c> <Esc>`^
 
 " Move by screen lines in vim
 nnoremap j gj
