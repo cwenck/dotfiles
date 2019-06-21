@@ -1,0 +1,7 @@
+- shell:
+    - ["rm -f zsh/antibody; sh zsh/antibody-installer/install -b zsh", "Download Antibody"]
+    - ["zsh/antibody bundle < zsh/zsh/plugins.txt > zsh/zsh/bundle.zsh", "Bundle Plugins"]
+- link:
+    ~/.zshrc: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
+    ~/.zsh: zsh/zsh

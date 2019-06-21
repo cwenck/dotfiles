@@ -2,3 +2,7 @@
 	path = meta/dotbot
     url = https://github.com/anishathalye/dotbot
     ignore = dirty
+[submodule "zsh/antibody-installer"]
+	path = zsh/antibody-installer
+    url = https://github.com/getantibody/installer
+    ignore = dirty

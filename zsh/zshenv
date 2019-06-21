@@ -1,0 +1,15 @@
+# vi:syntax=zsh
+
+export EDITOR=vim
+
+### PATH ###
+export path=(
+    $HOME/.bin
+    "${path[@]}"
+)
+
+### FPATH ###
+export fpath=(
+    $HOME/.zsh
+    "${fpath[@]}"
+)

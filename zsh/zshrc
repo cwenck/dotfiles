@@ -1,0 +1,68 @@
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+# Only wait 10ms for key sequences
+KEYTIMEOUT=1
+
+# Use modern completion system
+autoload -Uz compinit && compinit
+
+# TODO : remove
+alias ls='ls --color'
+alias sl='ls'
+alias reload='source ~/.zshrc'
+
+git_status() {
+    cd $(pwd) && git status -s  
+}
+
+### ZSH Completion Options ###
+# Reference: https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/completion.zsh
+# Reference: https://github.com/mattjj/my-oh-my-zsh/blob/master/completion.zsh
+
+zmodload -i zsh/complist
+
+unsetopt menu_complete   # Do not autoselect the first completion entry
+unsetopt flowcontrol     # Disable flow control start/stop characters in shell editor
+setopt auto_list         # Automatically list choices on ambigous completion
+setopt auto_menu         # Show completion menu on successive tab press
+setopt complete_in_word  # Complete from both ends of a word
+setopt always_to_end     # Move cursor to the end of a completed word
+setopt path_dirs         # Perform path search for commands containing slashes
+
+# Use cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+zstyle ':completion:*' completer _complete _match _approximate:-one _approximate:-four
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate-one:*' max-errors 1 numeric
+
+# Directory
+zstyle ':completion:*' squeeze-slashes true
+
+# Don't complete unavailable commands.
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+### Load Plugins ###
+source ~/.zsh/bundle.zsh
+
+# Configure History Substring Search Plugin Keybindings
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# Init the async plugin
+async_init
+
+### PROMPT ###
+
+autoload -Uz promptinit; promptinit
+prompt custom

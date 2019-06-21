@@ -1,0 +1,24 @@
+# vim:syntax=zsh
+
+# git_status() {
+#     cd $1 && [[ -z $(git status -s) ]] || echo "dirty"
+# }
+
+# git_status_callback() {
+#     local output=$@
+#     typeset -g PROMPT_GIT_STATUS="$output"
+#     zle reset-prompt
+#     async_job git_prompt_status_worker git_status $(pwd)
+# }
+
+# async_start_worker git_prompt_status_worker -n
+# async_register_callback git_prompt_status_worker git_status_callback
+# async_job git_prompt_status_worker git_status $(pwd)
+
+
+# TMOUT=5
+# TRAPALRM() {
+    # zle reset-prompt
+# }
+
+export PROMPT="$(pwd) [$(date)] ${prompt_newline}>> "
